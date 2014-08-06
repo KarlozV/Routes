@@ -17,7 +17,6 @@
   <tbody>
     <% @proyects.each do |proyect| %>
       <tr>
-        <td><%= link_to ‘Equipo’, proyect_engineers_path(proyect) %></td>
         <td><%= link_to proyect.id, proyect_path(proyect) %></td>
         <td><%= proyect.name %></td>
         <td><%= proyect.description %></td>
@@ -26,7 +25,7 @@
         <td><%=l proyect.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_enginner_path(engineer), :class => 'btn btn-mini' %>
+                      edit_proyect_path(proyect), :class => 'btn btn-mini' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       proyect_path(proyect),
                       :method => :delete,
@@ -39,5 +38,5 @@
 </table>
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
-            new_engineer_path,
+            new_proyect_path,
             :class => 'btn btn-primary' %>
