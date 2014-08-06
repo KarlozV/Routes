@@ -64,7 +64,7 @@ class EngineersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_engineer
-      @proyect = proyect.find(params[:proyect_id]) 
+      @proyect = Proyect.find(params[:proyect_id]) 
       @engineer = Engineer.find(params[:id]) if params[:id] 
     end
 

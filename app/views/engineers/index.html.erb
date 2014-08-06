@@ -17,17 +17,17 @@
   <tbody>
     <% @engineers.each do |engineer| %>
       <tr>
-        <td><%= link_to engineer.id, engineer_path(engineer) %></td>
-        <td><%= engineer.fullname %></td>
+        <td><%= engineer.id %></td>
+        <td><%= link_to engineer.fullname, proyect_engineer_path(@proyect,engineer) %></td>
         <td><%= engineer.dependency %></td>
         <td><%= engineer.studies %></td>
         <td><%= engineer.proyect_id %></td>
         <td><%=l engineer.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_proyects_engineer_path(@proyects,engineer), :class => 'btn btn-mini' %>
+                      edit_proyect_engineer_path(@proyect,engineer), :class => 'btn btn-mini' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      engineer_path(engineer),
+                      proyect_engineer_path(@proyect,engineer),
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                       :class => 'btn btn-mini btn-danger' %>
@@ -38,5 +38,5 @@
 </table>
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
-            new_engineer_proyect_path(@proyect),
+            new_proyect_engineer_path(@proyect),
             :class => 'btn btn-primary' %>
